@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployrz - Experts en Cloud, IA et Sécurité</title>
+    <style>
+        :root {
+            --primary-color: #0088b4;
+            --secondary-color: #00b589;
+            --dark-color: #222;
+            --light-color: #f4f4f4;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .language-selector {
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-selector a {
+            margin-left: 10px;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+        
+        .language-selector a.active {
+            opacity: 1;
+        }
+        
+        .language-selector a:hover {
+            opacity: 1;
+        }
+        
+        .language-selector img {
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-left: 15px;
+            letter-spacing: 1px;
+        }
+        
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            color: var(--secondary-color);
+        }
+        
+        /* Services Section */
+        #services {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            font-size: 3rem;
+        }
+        
+        .service-icon i {
+            font-size: 60px;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        /* About Section */
+        #about {
+            padding: 100px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        /* Contact Section */
+        #contact {
+            padding: 100px 0;
+            background-color: var(--light-color);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-info, .contact-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 136, 180, 0.1);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-submit:hover {
+            color: #fff;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #aaa;
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background-color: #fff;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Modal/Popup Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background-color: white;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(50px);
+            transition: all 0.4s ease;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .modal-close {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            transform: scale(1.2);
+        }
+        
+        .modal-content {
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        .modal-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 10px;
+        }
+        
+        .modal-content p {
+            margin-bottom: 20px;
+        }
+        
+        .service-details ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .service-details ul li {
+            margin-bottom: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            text-align: right;
+            border-top: 1px solid var(--light-color);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo Deployrz">
+                    <span class="logo-text">DEPLOYRZ</span>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="language-selector">
+                    <a href="index.html" class="active">
+                        <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="8" height="16" fill="#0055A4"/>
+                            <rect x="8" width="8" height="16" fill="#FFFFFF"/>
+                            <rect x="16" width="8" height="16" fill="#EF4135"/>
+                        </svg>
+                    </a>
+                    <a href="deployrz-website-en.html">
+                        <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="16" fill="#012169"/>
+                            <path d="M0 0L24 16M24 0L0 16" stroke="white" stroke-width="2"/>
+                            <path d="M12 0V16M0 8H24" stroke="white" stroke-width="4"/>
+                            <path d="M12 0V16M0 8H24" stroke="#C8102E" stroke-width="2"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Solutions Innovantes pour Votre Transformation Digitale</h1>
+                <p>Expertise en cloud computing, intelligence artificielle, réseaux, gestion de données et sécurité</p>
+                <a href="#contact" class="btn">Contactez-nous</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Services</h2>
+                <p>Deployrz vous accompagne dans tous vos projets technologiques avec une expertise approfondie dans les domaines suivants</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-service="consulting">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Conseil</h3>
+                        <p>Conseils stratégiques et accompagnement personnalisé pour votre transformation digitale et l'évolution de votre infrastructure IT.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="cloud">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Cloud Computing</h3>
+                        <p>Déploiement, migration et optimisation de vos solutions cloud sur AWS, Azure, Google Cloud ou infrastructures hybrides.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="ai">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Intelligence Artificielle</h3>
+                        <p>Conception et intégration de solutions d'IA et de modèles d'agents pour automatiser et optimiser vos processus métier.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="data">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Gestion des Données</h3>
+                        <p>Conception de solutions de stockage, traitement et analyse de données adaptées à vos besoins spécifiques.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="agents">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Agents IA</h3>
+                        <p>Conception et déploiement d'agents conversationnels intelligents personnalisés pour automatiser le service client et optimiser les processus internes.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" data-service="security">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Réseau, SECOPS et Sécurité</h3>
+                        <p>Protection de vos infrastructures et données avec des solutions réseau et de sécurité robustes ainsi qu'une surveillance continue.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Option 1: Use a local image -->
+                    <img src="team.jpg" alt="Équipe Deployrz">
+                    
+                    <!-- Option 2: If you prefer to use the logo until you have a team photo -->
+                    <!-- <img src="logo.png" alt="Logo Deployrz" style="padding: 50px; background: #f4f4f4; border-radius: 10px;"> -->
+                </div>
+                <div class="about-text">
+                    <h2>À propos de Deployrz</h2>
+                    <p>Deployrz est une société de conseil spécialisée dans les technologies de pointe, fondée par des experts passionnés par l'innovation technologique.</p>
+                    <p>Notre mission est d'accompagner les entreprises dans leur transformation digitale en proposant des solutions sur mesure, adaptées aux défis technologiques actuels et futurs.</p>
+                    <p>Avec une expertise approfondie en cloud computing, intelligence artificielle, réseaux, gestion de données et sécurité, notre équipe s'engage à fournir des services de haute qualité qui répondent parfaitement aux besoins de nos clients.</p>
+                    <a href="#contact" class="btn">Travaillons Ensemble</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-nous</h2>
+                <p>Vous avez un projet ou une question ? N'hésitez pas à nous contacter, nous sommes là pour vous aider.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informations de Contact</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-text">
+                            <h4>Téléphone</h4>
+                            <p>+33 7 68 62 37 75</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>contact@deployrz.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-text">
+                            <h4>Adresse</h4>
+                            <p>9 Rue Lise London<br>Saint-Ouen, 93400<br>France</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-text">
+                            <h4>Horaires</h4>
+                            <p>Lundi - Vendredi: 9h - 18h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Envoyez-nous un Message</h3>
+                    <form id="contact-form" action="https://formspree.io/f/xdkgoyeb" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control" placeholder="Sujet">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Logo Deployrz">
+                    <p>Solutions innovantes pour votre transformation digitale</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Conseil</a></li>
+                        <li><a href="#services">Cloud Computing</a></li>
+                        <li><a href="#services">Intelligence Artificielle</a></li>
+                        <li><a href="#services">Réseau</a></li>
+                        <li><a href="#services">Gestion des Données</a></li>
+                        <li><a href="#services">SECOPS et Sécurité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Suivez-nous</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deployrz. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal/Popup Container -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modal-title">Détails du Service</h2>
+                <div class="modal-close" id="modal-close">&times;</div>
+            </div>
+            <div class="modal-content" id="modal-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn" id="modal-btn">Nous contacter à propos de ce service</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+        
+        // Service Details Modal
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modal = document.querySelector('.modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        const modalBtn = document.getElementById('modal-btn');
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        // Service details content
+        const serviceDetails = {
+            consulting: {
+                title: "Services de Conseil",
+                content: `
+                    <div class="service-details">
+                        <h3>Notre Approche de Conseil</h3>
+                        <p>Chez Deployrz, nos services de conseil vont au-delà des simples recommandations. Nous travaillons aux côtés de vos équipes pour comprendre pleinement vos défis d'entreprise et concevoir des stratégies technologiques sur mesure.</p>
+                        
+                        <h3>Domaines d'Expertise</h3>
+                        <ul>
+                            <li><strong>Stratégie de Transformation Digitale</strong> - Feuilles de route complètes pour guider l'évolution de votre organisation à l'ère numérique</li>
+                            <li><strong>Évaluation de l'Infrastructure IT</strong> - Analyse approfondie de vos systèmes actuels avec des recommandations concrètes</li>
+                            <li><strong>Sélection de Technologies</strong> - Conseils neutres sur le choix des technologies adaptées à vos besoins spécifiques</li>
+                            <li><strong>Optimisation des Processus</strong> - Rationalisation des flux de travail et des opérations grâce à des méthodologies modernes</li>
+                            <li><strong>Gestion du Changement</strong> - Accompagnement de vos équipes lors des transitions technologiques</li>
+                        </ul>
+                        
+                        <h3>Notre Équipe</h3>
+                        <p>Nos consultants apportent des expertises diverses issues d'industries comme la finance, la santé, la fabrication et le commerce de détail, avec des certifications dans les principaux cadres et méthodologies, notamment ITIL, Agile, TOGAF, et plus encore.</p>
+                        
+                        <h3>Technologies Clés</h3>
+                        <div>
+                            <span class="tag">Architecture d'Entreprise</span>
+                            <span class="tag">Gestion des Processus Métier</span>
+                            <span class="tag">Espace de Travail Digital</span>
+                            <span class="tag">Gestion des Services IT</span>
+                            <span class="tag">Gestion de Projet</span>
+                        </div>
+                    </div>
+                `
+            },
+            cloud: {
+                title: "Services de Cloud Computing",
+                content: `
+                    <div class="service-details">
+                        <h3>Solutions Cloud Complètes</h3>
+                        <p>Deployrz propose des services cloud de bout en bout, depuis l'évaluation et la planification initiales jusqu'à la mise en œuvre, la migration et la gestion continue. Nous vous aidons à tirer parti des technologies cloud pour atteindre une plus grande agilité, évolutivité et efficacité des coûts.</p>
+                        
+                        <h3>Notre Expertise Cloud</h3>
+                        <ul>
+                            <li><strong>Stratégie & Architecture Cloud</strong> - Conception d'environnements cloud optimaux alignés sur vos objectifs commerciaux</li>
+                            <li><strong>Migration Cloud</strong> - Transition en douceur de vos charges de travail vers des plateformes cloud avec un minimum de perturbation</li>
+                            <li><strong>Solutions Multi-Cloud & Hybrides</strong> - Création d'environnements intégrés à travers plusieurs fournisseurs cloud et systèmes sur site</li>
+                            <li><strong>Développement Cloud-Native</strong> - Construction d'applications optimisées pour le déploiement cloud utilisant des conteneurs et des microservices</li>
+                            <li><strong>Optimisation des Coûts</strong> - Mise en œuvre de stratégies pour gérer et réduire les dépenses cloud</li>
+                            <li><strong>Services Cloud Managés</strong> - Fourniture d'une gestion, d'une surveillance et d'un support continus pour vos environnements cloud</li>
+                        </ul>
+                        
+                        <h3>Expertise sur les Plateformes</h3>
+                        <div>
+                            <span class="tag">AWS</span>
+                            <span class="tag">Microsoft Azure</span>
+                            <span class="tag">Google Cloud</span>
+                            <span class="tag">Oracle Cloud</span>
+                            <span class="tag">IBM Cloud</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Terraform</span>
+                            <span class="tag">Ansible</span>
+                        </div>
+                    </div>
+                `
+            },
+            ai: {
+                title: "Services d'Intelligence Artificielle",
+                content: `
+                    <div class="service-details">
+                        <h3>Innovation Alimentée par l'IA</h3>
+                        <p>Nos services d'IA aident les organisations à découvrir de nouvelles possibilités grâce aux algorithmes avancés, à l'apprentissage automatique et aux technologies d'apprentissage profond. Nous nous concentrons sur des implémentations d'IA pratiques qui apportent une réelle valeur commerciale.</p>
+                        
+                        <h3>Solutions d'IA</h3>
+                        <ul>
+                            <li><strong>Développement de Stratégie IA</strong> - Création de feuilles de route pour l'adoption de l'IA alignées sur vos objectifs commerciaux</li>
+                            <li><strong>Solutions d'Apprentissage Automatique</strong> - Développement de modèles ML personnalisés pour la prédiction, la classification et l'optimisation</li>
+                            <li><strong>Traitement du Langage Naturel</strong> - Construction de systèmes qui comprennent, interprètent et génèrent du langage humain</li>
+                            <li><strong>Vision par Ordinateur</strong> - Mise en œuvre de solutions qui analysent et interprètent l'information visuelle</li>
+                            <li><strong>IA Générative</strong> - Création de systèmes qui génèrent du contenu, des designs ou des solutions basés sur des modèles appris</li>
+                            <li><strong>Intégration d'IA</strong> - Incorporation de capacités d'IA dans les systèmes et flux de travail existants</li>
+                            <li><strong>Éthique et Gouvernance d'IA</strong> - Garantir une utilisation responsable de l'IA avec une surveillance et des contrôles appropriés</li>
+                        </ul>
+                        
+                        <h3>Technologies & Frameworks</h3>
+                        <div>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Hugging Face</span>
+                            <span class="tag">LangChain</span>
+                            <span class="tag">OpenAI</span>
+                            <span class="tag">Anthropic</span>
+                            <span class="tag">Vision par Ordinateur</span>
+                            <span class="tag">LLMs</span>
+                            <span class="tag">MLOps</span>
+                        </div>
+                    </div>
+                `
+            },
+            data: {
+                title: "Services de Gestion des Données",
+                content: `
+                    <div class="service-details">
+                        <h3>Gestion Stratégique des Données</h3>
+                        <p>Nos services de gestion des données aident les organisations à collecter, stocker, traiter et analyser efficacement les données pour en extraire une valeur maximale et favoriser une prise de décision éclairée.</p>
+                        
+                        <h3>Nos Services de Données</h3>
+                        <ul>
+                            <li><strong>Stratégie de Données</strong> - Développement d'approches complètes pour gérer les données comme un atout stratégique</li>
+                            <li><strong>Architecture de Données</strong> - Conception de cadres robustes pour le stockage, l'intégration et l'accès aux données</li>
+                            <li><strong>Entrepôts & Lacs de Données</strong> - Construction de référentiels centralisés pour les données structurées et non structurées</li>
+                            <li><strong>Business Intelligence</strong> - Création de tableaux de bord et de solutions de reporting pour des insights opérationnels</li>
+                            <li><strong>Traitement Big Data</strong> - Mise en œuvre de solutions pour gérer des données à haut volume et haute vélocité</li>
+                            <li><strong>Qualité & Gouvernance des Données</strong> - Établissement de processus pour assurer l'exactitude, la cohérence et la conformité des données</li>
+                            <li><strong>Analyses Avancées</strong> - Application de méthodes statistiques et de techniques de science des données pour découvrir des insights plus profonds</li>
+                        </ul>
+                        
+                        <h3>Technologies</h3>
+                        <div>
+                            <span class="tag">Hadoop</span>
+                            <span class="tag">Spark</span>
+                            <span class="tag">Snowflake</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Elastic</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Tableau</span>
+                            <span class="tag">Looker</span>
+                            <span class="tag">dbt</span>
+                        </div>
+                    </div>
+                `
+            },
+            agents: {
+                title: "Services d'Agents IA",
+                content: `
+                    <div class="service-details">
+                        <h3>Automatisation Intelligente avec les Agents IA</h3>
+                        <p>Nos services d'agents IA se concentrent sur la création de systèmes intelligents et autonomes qui peuvent interagir avec les utilisateurs, les systèmes et les données pour effectuer des tâches, prendre des décisions et fournir des insights avec une intervention humaine minimale.</p>
+                        
+                        <h3>Solutions d'Agents IA</h3>
+                        <ul>
+                            <li><strong>IA Conversationnelle</strong> - Création de chatbots sophistiqués et d'assistants virtuels pour le service client et le support interne</li>
+                            <li><strong>Agents d'Automatisation des Processus</strong> - Construction d'agents intelligents qui automatisent des flux de travail métier complexes</li>
+                            <li><strong>Agents d'Aide à la Décision</strong> - Développement de systèmes qui analysent les données et fournissent des recommandations</li>
+                            <li><strong>Agents de Gestion des Connaissances</strong> - Création de systèmes d'IA qui organisent, accèdent et utilisent les connaissances organisationnelles</li>
+                            <li><strong>Systèmes Multi-Agents</strong> - Conception d'écosystèmes d'agents spécialisés qui collaborent pour résoudre des problèmes complexes</li>
+                            <li><strong>Développement d'Agents Personnalisés</strong> - Construction d'agents sur mesure pour des applications spécifiques à l'industrie</li>
+                        </ul>
+                        
+                        <h3>Capacités des Agents</h3>
+                        <ul>
+                            <li><strong>Compréhension du Langage Naturel</strong> - Compréhension des demandes des utilisateurs en langage courant</li>
+                            <li><strong>Raisonnement & Résolution de Problèmes</strong> - Application de la logique pour surmonter les obstacles et trouver des solutions</li>
+                            <li><strong>Utilisation d'Outils & Intégration</strong> - Connexion et utilisation de divers systèmes et APIs</li>
+                            <li><strong>Apprentissage & Adaptation</strong> - Amélioration des performances basée sur l'expérience et les retours</li>
+                            <li><strong>Conscience Contextuelle</strong> - Maintien de la compréhension à travers les conversations et les processus</li>
+                        </ul>
+                        
+                        <h3>Technologies</h3>
+                        <div>
+                            <span class="tag">LangChain</span>
+                            <span class="tag">AutoGen</span>
+                            <span class="tag">CrewAI</span>
+                            <span class="tag">Systèmes RAG</span>
+                            <span class="tag">Claude</span>
+                            <span class="tag">GPT-4</span>
+                            <span class="tag">Llama</span>
+                            <span class="tag">Mistral</span>
+                        </div>
+                    </div>
+                `
+            },
+            security: {
+                title: "Services de Réseau, SECOPS et Sécurité",
+                content: `
+                    <div class="service-details">
+                        <h3>Solutions de Sécurité Complètes</h3>
+                        <p>Nos services de sécurité fournissent une protection de bout en bout pour vos actifs numériques, depuis l'infrastructure réseau jusqu'aux données et applications, avec un accent sur la défense proactive et la réponse rapide aux menaces émergentes.</p>
+                        
+                        <h3>Services de Sécurité</h3>
+                        <ul>
+                            <li><strong>Évaluation & Audit de Sécurité</strong> - Évaluation complète de votre posture de sécurité et de votre état de conformité</li>
+                            <li><strong>Sécurité Réseau</strong> - Protection de l'infrastructure réseau par des pare-feu, la segmentation et la détection d'intrusion</li>
+                            <li><strong>Sécurité Cloud</strong> - Sécurisation des environnements cloud avec des contrôles et configurations appropriés</li>
+                            <li><strong>Gestion des Identités & des Accès</strong> - Mise en œuvre de systèmes robustes d'authentification et d'autorisation</li>
+                            <li><strong>Opérations de Sécurité (SECOPS)</strong> - Surveillance continue, détection et réponse aux menaces de sécurité</li>
+                            <li><strong>Réponse aux Incidents</strong> - Gestion rapide et efficace des violations et incidents de sécurité</li>
+                            <li><strong>Automatisation de la Sécurité</strong> - Rationalisation des processus de sécurité grâce à des outils et flux de travail automatisés</li>
+                            <li><strong>Conformité & Gouvernance</strong> - Garantir le respect des exigences réglementaires et des normes de sécurité</li>
+                        </ul>
+                        
+                        <h3>Services Réseau</h3>
+                        <ul>
+                            <li><strong>Architecture & Conception Réseau</strong> - Création d'infrastructures réseau optimisées</li>
+                            <li><strong>Implémentation SD-WAN</strong> - Déploiement de réseaux étendus définis par logiciel</li>
+                            <li><strong>Surveillance & Gestion Réseau</strong> - Assurer les performances et la disponibilité optimales du réseau</li>
+                            <li><strong>Réseaux Zero Trust</strong> - Mise en œuvre de modèles de sécurité qui vérifient chaque demande d'accès</li>
+                        </ul>
+                        
+                        <h3>Technologies & Normes</h3>
+                        <div>
+                            <span class="tag">Cisco</span>
+                            <span class="tag">Fortinet</span>
+                            <span class="tag">Palo Alto</span>
+                            <span class="tag">Okta</span>
+                            <span class="tag">CrowdStrike</span>
+                            <span class="tag">SOC 2</span>
+                            <span class="tag">ISO 27001</span>
+                            <span class="tag">RGPD</span>
+                            <span class="tag">NIST</span>
+                        </div>
+                    </div>
+                `
+            }
+        };
+        
+        // Open modal when a service card is clicked
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const serviceType = card.getAttribute('data-service');
+                const service = serviceDetails[serviceType];
+                
+                if (service) {
+                    modalTitle.textContent = service.title;
+                    modalContent.innerHTML = service.content;
+                    modalOverlay.classList.add('active');
+                    
+                    // Prevent body scrolling when modal is open
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close modal when close button is clicked
+        modalClose.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close modal when clicking outside the modal
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Contact button in modal
+        modalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
+            // Scroll to contact section
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Focus on the subject field and pre-fill it with the service title
+            setTimeout(() => {
+                const subjectField = document.querySelector('input[name="subject"]');
+                if (subjectField) {
+                    subjectField.value = `Demande d'information sur ${modalTitle.textContent}`;
+                    subjectField.focus();
+                }
+            }, 800);
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contact-form');
+        
+        // The form is now handled by Formspree
+        // No additional JavaScript code needed
+    </script>
+</body>
+</html>
